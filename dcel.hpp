@@ -12,7 +12,7 @@ public:
 
     float x, y;
 
-    vertex(float in_x, float in_y)
+    vertex(float in_x=0, float in_y=0)
     {
         key = vertex_n;
         vertex_n ++;

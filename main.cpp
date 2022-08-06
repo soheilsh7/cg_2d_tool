@@ -76,8 +76,42 @@ int filter(string s, vector<string> *elements)
     
 }
 
+float distance(vertex v1, vertex v2)
+{
+    return sqrt(pow(v1.x - v2.x, 2) + pow(v1.y - v2.y, 2));
+}
+
+vertex midpoint_2(vertex v1, vertex v2)
+{
+    vertex v;
+    v.x = (v1.x + v2.x) / 2;
+    v.y = (v1.y + v2.y) / 2;
+    return v;
+}
+
+vertex midpoint_3(vertex v1, vertex v2, vertex v3)
+{
+    vertex v;
+    v.x = (v1.x + v2.x + v3.x) / 3;
+    v.y = (v1.y + v2.y + v3.y) / 3;
+    return v;
+}
+
+bool in_face(vertex v, face f)
+{
+    for (int i = 0; i < f.vertexes.size(); i++)
+    {
+        if (f.vertexes[i]->get_key() == v.get_key())
+        {
+            return true;
+        }
+    }
+    return false;
+}
 
 
+
+/*
 void add_point(vertex v, vector<edge *> es, vector<vertex *> vs)
 {
     float m;
@@ -101,8 +135,7 @@ void add_point(vertex v, vector<edge *> es, vector<vertex *> vs)
     
 }
 
-
-
+*/
 
 
 //TODO : set key in add_*_vector
@@ -128,6 +161,7 @@ int main(int argc, char** argv)
     gid_file.open(argv[1], ios::in);
 
     //string newLine;
+ 
     //string delimiter;
     //SetLineEnding(argv[1], newLine, delimiter);
     
